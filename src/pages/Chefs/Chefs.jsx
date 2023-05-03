@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Chefs = () => {
   const [chefsData, setChefsData] = useState([]);
@@ -32,9 +33,15 @@ const Chefs = () => {
                   <p className="text-gray-700 font-bold mb-2">
                     {chef.likes} likes
                   </p>
+
+                  <Link to={`/chefdetails/${chef?.id}`}>
+
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                     View Recipes
                   </button>
+
+                  </Link>
+
                 </div>
               </div>
             </div>

@@ -7,8 +7,8 @@ import Footer from "../Footer/Footer";
 const Home = () => {
   return (
     <div>
-      {/* <h1 className="text-3xl font-bold underline">Home</h1> */}
       <NavBar></NavBar>
+      <h1 className="text-3xl font-bold underline">Home</h1>
       <Outlet></Outlet>
       <Footer></Footer>
     </div>

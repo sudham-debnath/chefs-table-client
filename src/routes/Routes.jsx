@@ -6,6 +6,8 @@ import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
 import Blogs from './../pages/Blogs/Blogs';
 import Chefs from "../pages/Chefs/Chefs";
+import ChefsDetails from './../pages/ChefsDetails/ChefsDetails';
+import ErrorPage from './../pages/ErrorPage/ErrorPage';
 
 
 
@@ -13,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "login",
@@ -29,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "chefs",
         element: <Chefs></Chefs>,
+      },
+      {
+        path: "chefdetails:id",
+        element: <ChefsDetails></ChefsDetails>,
       }
     ],
   },
