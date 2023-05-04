@@ -12,7 +12,7 @@ const ChefsDetails = () => {
   // console.log(chef.recipes[0]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allData/${id}`)
+    fetch(`https://chefs-table-server-sudham-debnath.vercel.app/allData/${id}`)
       .then((response) => response.json())
       .then((data) => setChef(data));
   }, []);
@@ -22,7 +22,7 @@ const ChefsDetails = () => {
 
       {/* Chefs Details Section */}
       <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img className="w-96" src={chef.picture} alt={chef.name} />
+        <img className="" src={chef.picture} alt={chef.name} />
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{chef.name}</div>
           <p className="text-gray-700 text-base">Bio: {chef.bio}</p>
@@ -44,7 +44,7 @@ const ChefsDetails = () => {
       {/* Chefs Recipe Section */}
       {chef.recipes && Array.isArray(chef.recipes) && (
         <div>
-          <h3>Recipes</h3>
+          <h3 className=" font-bold">Recipes</h3>
           {chef.recipes.map((recipe, index) => (
             <div key={index}>
               <StarIcon className=" w-10"></StarIcon>

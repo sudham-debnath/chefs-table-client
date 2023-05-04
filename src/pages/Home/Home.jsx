@@ -10,7 +10,7 @@ const Home = () => {
         <div className=" p-16 ">
           <h1 className="text-5xl font-bold">Best Pizza </h1>
           <span className="text-5xl font-bold text-indigo-700">in Town</span>
-          <p className="py-5">
+          <p className="py-5 text-justify">
             If you're looking for the best pizza in town, look no further than
             our restaurant! Our pizzas are made with fresh, high-quality
             ingredients and baked to perfection for a mouthwatering taste that
@@ -31,7 +31,7 @@ const Home = () => {
       <div className="p-14">
         <div className=" text-center my-10">
           <h1 className=" text-3xl p-5 font-bold">Our Best Food Category</h1>
-          <p>
+          <p className=" text-justify">
             Food can be divided into different categories based on various
             factors such as ingredients, cooking methods, and cultural origins.
             Some popular food categories include Italian cuisine, Asian cuisine,
@@ -42,29 +42,29 @@ const Home = () => {
 
         <div className="grid lg:grid-cols-4 sm:grid-cols-1 gap-20">
           <div className=" bg-slate-100 p-6 rounded  ">
-            <div className="bg bg-slate-200 p-3 w-16 rounded">
-              <img src="https://i.ibb.co/7jYwK05/accounts-1.png" alt="" />
+            <div className="bg bg-slate-200 p-3 w-20 rounded">
+              <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">Italian Cuisine</h1>
             <p className="font-medium">167+ Recipes Available</p>
           </div>
           <div className=" bg-slate-100 p-6 rounded">
-            <div className="bg bg-slate-200 p-3 w-16 rounded">
-              <img src="https://i.ibb.co/Bz90HMf/business-1.png" alt="" />
+            <div className="bg bg-slate-200 p-3 w-20 rounded">
+              <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">American Cuisine</h1>
             <p className="font-medium">100+ Recipes Available</p>
           </div>
           <div className=" bg-slate-100 p-6 rounded">
-            <div className="bg bg-slate-200 p-3 w-16 rounded">
-              <img src="https://i.ibb.co/GdVhPww/social-media-1.png" alt="" />
+            <div className="bg bg-slate-200 p-3 w-20 rounded">
+              <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">Mexican Cuisine</h1>
             <p className="font-medium">156+ Recipes Available</p>
           </div>
           <div className=" bg-slate-100 p-6 rounded">
-            <div className="bg bg-slate-200 p-3 w-16 rounded">
-              <img src="https://i.ibb.co/Dz3NpqJ/chip-1.png" alt="" />
+            <div className="bg bg-slate-200 p-3 w-20 rounded">
+              <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">Chinese Cuisine</h1>
             <p className="font-medium">135+ Recipes Available</p>
@@ -73,10 +73,10 @@ const Home = () => {
       </div>
 
       {/* Our Best Chefs */}
-      <div>
+      <div className="p-14">
         <div className=" text-center">
           <h1 className="text-3xl p-5 font-bold">Our Best Chefs</h1>
-          <p>
+          <p className=" text-justify">
             Our best chefs are highly skilled and experienced professionals who
             are passionate about creating delicious and innovative dishes. With
             their expertise and creativity, they constantly strive to push the
@@ -90,9 +90,9 @@ const Home = () => {
 
       {/* About Us */}
 
-      <div className=" text-center my-14 p-14">
+      <div className=" text-center p-14 mt-0">
         <h1 className="text-3xl p-5 font-bold">About Us</h1>
-        <p className="">
+        <p className=" text-justify">
           Italian cuisine is known worldwide for its simple yet delicious
           flavors and fresh ingredients. Italian restaurants typically offer a
           wide range of dishes including pasta, pizza, antipasti, and seafood.
