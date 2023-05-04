@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -23,13 +24,26 @@ const Register = () => {
     if ((name, email, password)) {
       registerUser(email, password)
         .then((result) => {
-          console.log(result.user);
+          setError(result.user);
         })
         .catch((err) => {
-          console.log(err.message);
+          setError(err.message);
         });
     }
     
+  };
+  
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TODO: handle form submission
   };
 
   return (
@@ -46,7 +60,7 @@ const Register = () => {
 
         <p className=" text-red-600 ">{error}</p>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="name"
@@ -74,11 +88,12 @@ const Register = () => {
               </label>
               <div className="flex flex-col items-start">
                 <input
-                  onChange={(e) => setEmail(e.target.value)}
+                  // onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
                   type="email"
                   name="email"
-                  required
+                  onChange={handleEmailChange}
+          required
                   className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
@@ -92,29 +107,33 @@ const Register = () => {
               </label>
               <div className="flex flex-col items-start">
                 <input
-                  onChange={(e) => setPassword(e.target.value)}
+                  // onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   type="password"
                   name="password"
+                  onChange={handlePasswordChange}
+          required
                   className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
             </div>
-            {/* <div className="mt-4">
+            <div className="mt-4">
               <label
-                htmlFor="password_confirmation"
+                htmlFor="photo_url"
                 className="block text-sm font-medium text-gray-700 undefined"
               >
-                Confirm Password
+                Photo URL
               </label>
               <div className="flex flex-col items-start">
                 <input
-                  type="password"
-                  name="password_confirmation"
-                  className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  name="photo_url"
+                  placeholder="Enter Photo URL"
+                  className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
-            </div> */}
+            </div>
             <a href="#" className="text-xs text-purple-600 hover:underline">
               Forget Password?
             </a>
