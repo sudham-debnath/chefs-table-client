@@ -12,7 +12,7 @@ const Chefs = () => {
   }, []);
 
   return (
-    <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 m-28">
+    <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 m-14">
       {/* <h1 className="text-3xl font-bold underline">Chefs</h1> */}
       {chefsData.chefs &&
         chefsData.chefs.map((chef) => (
