@@ -34,7 +34,7 @@ const Chefs = () => {
                     {chef.likes} likes
                   </p>
 
-                  <Link to={`/chefdetails/${chef?.id}`}>
+                  <Link to={`/chefs/${chef?.id}`}>
 
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                     View Recipes

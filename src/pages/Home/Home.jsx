@@ -1,16 +1,26 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import NavBar from "../NavBar/NavBar";
-import { Outlet } from "react-router-dom";
-import Footer from "../Footer/Footer";
+import React from 'react';
+import Chefs from '../Chefs/Chefs';
 
 const Home = () => {
   return (
     <div>
-      <NavBar></NavBar>
-      <h1 className="text-3xl font-bold underline">Home</h1>
-      <Outlet></Outlet>
-      <Footer></Footer>
+      <div className=" grid lg:grid-cols-2 sm:grid-cols-1 bg-slate-100">
+        <div className=" p-16 ">
+          <h1 className="text-5xl font-bold">Best Pizza </h1>
+          <span className="text-5xl font-bold text-indigo-700">in Town</span>
+          <p className="py-5">
+            Explore thousands of job opportunities with all the information you
+            need. Its your future. Come find it. Manage all your job application
+            from start to finish.
+          </p>
+          <button className="btn btn-primary">Get Started</button>
+        </div>
+        <div>
+          <img src="https://i.ibb.co/WfnFzKy/hands-taking-slices-italian-cuisine-pizza.png" alt="" />
+        </div>
+      </div>
+      <Chefs></Chefs>
     </div>
   );
 };

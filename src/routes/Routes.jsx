@@ -8,15 +8,19 @@ import Blogs from './../pages/Blogs/Blogs';
 import Chefs from "../pages/Chefs/Chefs";
 import ChefsDetails from './../pages/ChefsDetails/ChefsDetails';
 import ErrorPage from './../pages/ErrorPage/ErrorPage';
-
+import App from "../App";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <App></App>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
       {
         path: "login",
         element: <Login></Login>,
@@ -34,7 +38,7 @@ const router = createBrowserRouter([
         element: <Chefs></Chefs>,
       },
       {
-        path: "chefdetails:id",
+        path: "chefs/:id",
         element: <ChefsDetails></ChefsDetails>,
       }
     ],
