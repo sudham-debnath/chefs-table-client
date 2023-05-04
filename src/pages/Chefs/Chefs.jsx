@@ -12,23 +12,23 @@ const Chefs = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 mx-16">
       {/* <h1 className="text-3xl font-bold underline">Chefs</h1> */}
       {chefsData.chefs &&
         chefsData.chefs.map((chef) => (
           <div className=" w-80" key={chef.id}>
             <div className="border border-lime-500">
-              <div className="bg-whit shadow-lg rounded-lg overflow-hidden">
+              <div className="shadow rounded overflow-hidden">
                 <img className="w-60" src={chef.picture} alt={chef.name} />
                 <div className="p-4">
                   <h2 className="text-gray-900 font-bold text-xl mb-2">
                     {chef.name}
                   </h2>
                   <p className="text-gray-700 font-bold mb-2">
-                    {chef.yearsOfExperience} years of experience
+                    {chef.years_experience} years of experience
                   </p>
                   <p className="text-gray-700 font-bold mb-2">
-                    {chef.numRecipes} recipes
+                    {chef.num_recipes} recipes
                   </p>
                   <p className="text-gray-700 font-bold mb-2">
                     {chef.likes} likes
@@ -36,7 +36,7 @@ const Chefs = () => {
 
                   <Link to={`/chefs/${chef?.id}`}>
 
-                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     View Recipes
                   </button>
 

@@ -1,9 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const NavBar = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user?.email);
+  
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+
   return (
     <div>
       <div className="px-14 py-5 bg-slate-100">
@@ -73,7 +87,20 @@ const NavBar = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <a className="btn btn-primary border-none">More</a>
+            
+
+            {user?.email ? (
+          <li>
+            <button className="btn btn-primary border-none" onClick={handleLogout}>Logout</button>
+          </li>
+        ) : (
+          <Link to="/login">
+            <li className="btn btn-primary border-none">Login</li>
+          </Link>
+        )}
+        
+            <p>{user?.email}</p>
+
           </div>
         </div>
       </div>

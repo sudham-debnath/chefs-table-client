@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   // const { loginUser } = useContext();
@@ -11,8 +12,21 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { loginUser } = useContext(AuthContext);
+
   const handleLogin = (event) => {
     event.preventDefault();
+
+    if ((email, password)) {
+      loginUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          // navigate("/");
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
   };
 
   return (

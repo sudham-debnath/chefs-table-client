@@ -1,7 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+
+  const { registerUser } = useContext(AuthContext);
+
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -10,6 +15,19 @@ const Register = () => {
 
   const handleRegistration = (event) => {
     event.preventDefault();
+    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+      setError("Password not valid. Need 8 character ");
+      return;
+    }
+    if ((name, email, password)) {
+      registerUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
     
   };
 
@@ -24,6 +42,9 @@ const Register = () => {
           </a>
         </div>
         <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
+
+        <p className=" text-red-600 ">{error}</p>
+
           <form>
             <div>
               <label
@@ -76,7 +97,7 @@ const Register = () => {
                 />
               </div>
             </div>
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <label
                 htmlFor="password_confirmation"
                 className="block text-sm font-medium text-gray-700 undefined"
@@ -90,7 +111,7 @@ const Register = () => {
                   className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>
-            </div>
+            </div> */}
             <a href="#" className="text-xs text-purple-600 hover:underline">
               Forget Password?
             </a>
