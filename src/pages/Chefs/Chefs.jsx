@@ -12,14 +12,14 @@ const Chefs = () => {
   }, []);
 
   return (
-    <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 mx-16">
+    <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 m-28">
       {/* <h1 className="text-3xl font-bold underline">Chefs</h1> */}
       {chefsData.chefs &&
         chefsData.chefs.map((chef) => (
           <div className=" w-80" key={chef.id}>
             <div className="border border-violet-600 rounded">
               <div className="shadow rounded overflow-hidden">
-                <img className="w-60" src={chef.picture} alt={chef.name} />
+                <img className="w-full" src={chef.picture} alt={chef.name} />
                 <div className="p-4">
                   <h2 className="text-gray-900 font-bold text-xl mb-2">
                     {chef.name}

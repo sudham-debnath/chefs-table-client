@@ -90,9 +90,9 @@ const NavBar = () => {
             
 
             {user?.email ? (
-          <li>
+          
             <button className="btn btn-primary border-none" onClick={handleLogout}>Logout</button>
-          </li>
+          
         ) : (
           <Link to="/login">
             <li className="btn btn-primary border-none">Login</li>

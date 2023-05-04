@@ -68,7 +68,7 @@ const Home = () => {
       {/* Our Best Chefs */}
       <div>
 
-      <div className=" text-center my-10 p-14">
+      <div className=" text-center m-10 p-14">
           <h1 className="text-3xl p-5 font-bold">Our Best Chefs</h1>
           <p>
           Our best chefs are highly skilled and experienced professionals who are passionate about creating delicious and innovative dishes. With their expertise and creativity, they constantly strive to push the boundaries of culinary artistry and deliver a memorable dining experience for our customers.

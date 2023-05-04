@@ -14,18 +14,18 @@ const Footer = () => {
           <img src="https://i.ibb.co/hWrj59T/Group-9969.png" alt="" />
         </div>
         <div>
-          <h1 className=" text-white text-2xl font-semibold">Company</h1>
-          <p>About Us</p>
-          <p>Work</p>
-          <p>Latest News</p>
-          <p>Careers</p>
+          <h1 className=" text-white text-2xl font-semibold">About Us</h1>
+          <p>About Food</p>
+          <p>About Chef</p>
+          <p>Latest Blogs</p>
+          <p>Best Selling Food</p>
         </div>
         <div>
-          <h1 className=" text-white text-2xl font-semibold">Product</h1>
-          <p>Prototype</p>
-          <p>Plans & Pricing</p>
-          <p>Customers</p>
-          <p>Integrations</p>
+          <h1 className=" text-white text-2xl font-semibold">Cuisines</h1>
+          <p>Italian</p>
+          <p>American</p>
+          <p>Mexican</p>
+          <p>Chinese</p>
         </div>
         <div>
           <h1 className=" text-white text-2xl font-semibold">Support</h1>
@@ -35,7 +35,7 @@ const Footer = () => {
           <p>Developers</p>
         </div>
         <div>
-          <h1 className=" text-white text-2xl font-semibold">Company</h1>
+          <h1 className=" text-white text-2xl font-semibold">Address</h1>
           <p>524 Broadway , NYC</p>
           <p>+1 777 - 978 - 5570</p>
         </div>

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -32,10 +33,10 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+    <div className="m-20 ">
+      <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
         <div>
-          <a href="/">
+          <a href="#">
             <h3 className="text-4xl font-bold text-purple-600">
               Please Register Here!
             </h3>
@@ -59,7 +60,8 @@ const Register = () => {
                   placeholder="Enter your name"
                   type="text"
                   name="name"
-                  className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  required
+                  className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
             </div>
@@ -73,10 +75,11 @@ const Register = () => {
               <div className="flex flex-col items-start">
                 <input
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="enter your email address"
+                  placeholder="Enter your email address"
                   type="email"
                   name="email"
-                  className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  required
+                  className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
             </div>
@@ -93,7 +96,7 @@ const Register = () => {
                   placeholder="Enter your password"
                   type="password"
                   name="password"
-                  className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
             </div>
@@ -123,14 +126,16 @@ const Register = () => {
               </button>
             </div>
           </form>
+
           <div className="mt-4 text-grey-600">
             Already have an account?{" "}
             <span>
-              <a className="text-purple-600 hover:underline" href="#">
-                Log in
-              </a>
+              <Link to="/login">
+              <a className="text-purple-600 hover:underline" href="#">Log in</a>
+              </Link>
             </span>
           </div>
+
           <div className="flex items-center w-full my-4">
             <hr className="w-full" />
             <p className="px-3 ">OR</p>

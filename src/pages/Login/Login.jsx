@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
+import Register from './../Register/Register';
 
 const Login = () => {
   // const { loginUser } = useContext();
@@ -31,10 +33,18 @@ const Login = () => {
 
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+
+
+        <div className=" mt-10">
+          <a href="#">
+            <h3 className="text-4xl text-center font-bold text-purple-600">
+              Please Login!
+            </h3>
+          </a>
+        </div>
+
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
-          Login
-        </h1>
+        
         <form className="mt-6">
           <div className="mb-2">
             <label
@@ -116,11 +126,14 @@ const Login = () => {
         </div>
 
         <p className="mt-8 text-xs font-light text-center text-gray-700">
-          {" "}
-          Don't have an account?{" "}
-          <a href="#" className="font-medium text-purple-600 hover:underline">
-            Sign up
+          
+          Don't have an account?
+          <Link to="/register">
+          <a  className="font-medium text-purple-600 hover:underline">
+            Please Register!
           </a>
+          </Link>
+          
         </p>
       </div>
     </div>
