@@ -17,7 +17,7 @@ const Chefs = () => {
       {chefsData.chefs &&
         chefsData.chefs.map((chef) => (
           <div className=" w-80" key={chef.id}>
-            <div className="border border-lime-500">
+            <div className="border border-violet-600 rounded">
               <div className="shadow rounded overflow-hidden">
                 <img className="w-60" src={chef.picture} alt={chef.name} />
                 <div className="p-4">
