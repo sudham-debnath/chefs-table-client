@@ -4,20 +4,21 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Register from "./../Register/Register";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
 const Login = () => {
-
+  
+  const auth = getAuth(app);
+ 
   // Google Popup Login
   const [user, setUser] = useState(null);
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
     // console.log("google login");
 
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, googleProvider)
       .then((result) => {
         
         const loggedInUser = result.user;
@@ -36,7 +37,29 @@ const Login = () => {
 
 
   // GitHub Login
+  const githubProvider = new GithubAuthProvider();
   
+  const handleGitHubSignIn = () => {
+    signInWithPopup(auth, githubProvider)
+  .then((result) => {
+    // The signed-in user info.
+    const loggedUser = result.user;
+    console.log(loggedUser);
+    setUser(loggedUser)
+    
+  })
+      .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GithubAuthProvider.credentialFromError(error);
+    
+  });
+  }
+
 
   // Email & Password Login
   const [email, setEmail] = useState("");
@@ -51,7 +74,7 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
-          // navigate("/");
+          
         })
         .catch((error) => {
           console.log(error.message);
@@ -76,7 +99,7 @@ const Login = () => {
               // eslint-disable-next-line react/no-unknown-property
               for="email"
               className="block text-sm font-semibold text-gray-800"
-              placeholder="Enter your email address"
+              placeholder="Enter Your Email Address"
             >
               Email
             </label>
@@ -99,7 +122,7 @@ const Login = () => {
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="Enter your password"
+              placeholder="Enter Your Password"
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -119,6 +142,7 @@ const Login = () => {
           <div className="absolute px-5 bg-white">Or</div>
         </div>
         <div className="flex mt-4 gap-x-2">
+
           {/* Google */}
           <button
             onClick={handleGoogleSignIn}
@@ -135,7 +159,9 @@ const Login = () => {
           </button>
 
           {/* Github */}
-          <button className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
+          <button
+            onClick={handleGitHubSignIn}
+            className="flex items-center justify-center w-full p-2 border border-gray-600 rounded-md focus:ring-2 focus:ring-offset-1 focus:ring-violet-600">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
