@@ -4,13 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+console.log('environment variable', import.meta.env.VITE_apiKey)
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAoTJVG7_hbfPNELUpNqcM1r9cNuEOI1d4",
-  authDomain: "chefs-table-client-7ac47.firebaseapp.com",
-  projectId: "chefs-table-client-7ac47",
-  storageBucket: "chefs-table-client-7ac47.appspot.com",
-  messagingSenderId: "446903449862",
-  appId: "1:446903449862:web:c845796b08dfa01e520687"
+  apiKey:  import.meta.env.VITE_APIKEY,
+  authDomain:  import.meta.env.VITE_AUTHDOMAIN,
+  projectId:  import.meta.env.VITE_PROJECTID,
+  storageBucket:  import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:  import.meta.env.VITE_MESSAGINGSENDERID,
+  appId:  import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

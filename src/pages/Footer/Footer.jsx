@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className=" bg-slate-400 text-white p-14 ">
+    <div className=" bg-slate-400 text-white pt-14 px-14 ">
       <div className="grid justify-items-center lg:grid-cols-5 sm:grid-cols-1 gap-6 pb-5 bg-slate-400 text-white">
         <div>
           <h1 className=" text-white text-2xl font-bold">Chef's Table</h1>

@@ -42,28 +42,28 @@ const Home = () => {
 
         <div className="grid lg:grid-cols-4 sm:grid-cols-1 gap-20">
           <div className=" bg-slate-100 p-6 rounded  ">
-            <div className="bg bg-slate-200 p-3 w-20 rounded">
+            <div className="bg bg-slate-200 p-3 rounded">
               <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">Italian Cuisine</h1>
             <p className="font-medium">167+ Recipes Available</p>
           </div>
           <div className=" bg-slate-100 p-6 rounded">
-            <div className="bg bg-slate-200 p-3 w-20 rounded">
+            <div className="bg bg-slate-200 p-3 rounded">
               <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">American Cuisine</h1>
             <p className="font-medium">100+ Recipes Available</p>
           </div>
           <div className=" bg-slate-100 p-6 rounded">
-            <div className="bg bg-slate-200 p-3 w-20 rounded">
+            <div className="bg bg-slate-200 p-3 rounded">
               <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">Mexican Cuisine</h1>
             <p className="font-medium">156+ Recipes Available</p>
           </div>
           <div className=" bg-slate-100 p-6 rounded">
-            <div className="bg bg-slate-200 p-3 w-20 rounded">
+            <div className="bg bg-slate-200 p-3 rounded">
               <img src="https://i.ibb.co/k4fFygs/plate.png" alt="" />
             </div>
             <h1 className=" text-xl text-bold py-4">Chinese Cuisine</h1>
@@ -75,7 +75,7 @@ const Home = () => {
       {/* Our Best Chefs */}
       <div className="p-14">
         <div className=" text-center">
-          <h1 className="text-3xl p-5 font-bold">Our Best Chefs</h1>
+          <h1 className="text-3xl p-5 font-bold">Our Best Italian Chefs</h1>
           <p className=" text-justify">
             Our best chefs are highly skilled and experienced professionals who
             are passionate about creating delicious and innovative dishes. With

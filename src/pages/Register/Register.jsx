@@ -17,19 +17,21 @@ const Register = () => {
 
   const handleRegistration = (event) => {
     event.preventDefault();
-    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
-      setError("Password not valid. Need 8 character ");
-      return;
-    }
-    if ((name, email, password)) {
-      registerUser(email, password)
-        .then((result) => {
-          setError(result.user);
-        })
-        .catch((err) => {
-          setError(err.message);
-        });
-    }
+  if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+    setError("Password not valid. Need 8 character");
+    return;
+  }
+  if (!name || !email || !password) {
+    setError("Please enter all fields.");
+    return;
+  }
+  registerUser(email, password)
+    .then((result) => {
+      setError(result.user);
+    })
+    .catch((err) => {
+      setError(err.message);
+    });
     
   };
   
@@ -58,7 +60,7 @@ const Register = () => {
         </div>
         <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
 
-        <p className=" text-red-600 ">{error}</p>
+        {error && <p className=" text-red-500">{error}</p>}
 
           <form onSubmit={handleSubmit}>
             <div>
@@ -88,12 +90,15 @@ const Register = () => {
               </label>
               <div className="flex flex-col items-start">
                 <input
-                  // onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
                   type="email"
+                  id="email"
+                  value={email}
                   name="email"
-                  onChange={handleEmailChange}
-          required
+                  required
+                  // onChange={handleEmailChange}
+          
                   className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
@@ -107,12 +112,12 @@ const Register = () => {
               </label>
               <div className="flex flex-col items-start">
                 <input
-                  // onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
                   type="password"
                   name="password"
-                  onChange={handlePasswordChange}
-          required
+                  // onChange={handlePasswordChange}
+                  required
                   className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>

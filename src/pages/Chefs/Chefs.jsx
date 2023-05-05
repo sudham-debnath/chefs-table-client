@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { FaThumbsUp } from "react-icons/fa";
+
 const Chefs = () => {
   const [chefsData, setChefsData] = useState([]);
 
@@ -17,7 +19,7 @@ const Chefs = () => {
       {chefsData.chefs &&
         chefsData.chefs.map((chef) => (
           <div className=" w-80" key={chef.id}>
-            <div className="border border-violet-600 rounded">
+            <div className="border border-gray-100 rounded">
               <div className="shadow rounded overflow-hidden">
                 <img className="w-full" src={chef.picture} alt={chef.name} />
                 <div className="p-4">
@@ -30,8 +32,11 @@ const Chefs = () => {
                   <p className="text-gray-700 font-bold mb-2">
                     {chef.num_recipes} recipes
                   </p>
+                  <p className="text-gray-700 font-bold mb-2 flex items-center gap-2">
+                    {chef.likes} likes <FaThumbsUp />
+                  </p>
                   <p className="text-gray-700 font-bold mb-2">
-                    {chef.likes} likes
+                    {chef.cuisine} Cuisine
                   </p>
 
                   <Link to={`/chefs/${chef?.id}`}>
