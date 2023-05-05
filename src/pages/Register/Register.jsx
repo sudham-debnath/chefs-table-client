@@ -161,6 +161,8 @@ const Register = () => {
             <hr className="w-full" />
           </div>
           <div className="my-6 space-y-2">
+
+          {/* Login with Google */}
             <button
               aria-label="Login with Google"
               type="button"
@@ -175,6 +177,8 @@ const Register = () => {
               </svg>
               <p>Login with Google</p>
             </button>
+
+            {/* Login with GitHub */}
             <button
               aria-label="Login with GitHub"
               role="button"

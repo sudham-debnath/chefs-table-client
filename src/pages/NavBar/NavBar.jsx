@@ -5,10 +5,9 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const NavBar = () => {
-
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.email);
-  
+  // console.log(user?.email);
+
   const handleLogout = () => {
     logOut()
       .then()
@@ -16,7 +15,6 @@ const NavBar = () => {
         console.log(err);
       });
   };
-
 
   return (
     <div>
@@ -83,23 +81,27 @@ const NavBar = () => {
                   Blogs
                 </NavLink>
               </li>
-              
             </ul>
           </div>
           <div className="navbar-end">
-            
 
-            {user?.email ? (
-          
-            <button className="btn btn-primary border-none" onClick={handleLogout}>Logout</button>
-          
-        ) : (
-          <Link to="/login">
-            <li className="btn btn-primary border-none">Login</li>
-          </Link>
-        )}
-        
-            <p>{user?.email}</p>
+            
+            {/* Logged User Info */}
+            {user?.email? (
+              <button
+                className="btn btn-primary border-none"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            ) : (
+              <Link to="/login">
+                <li className="btn btn-primary border-none">Login</li>
+              </Link>
+            )}
+
+            {/* <p>{user?.displayName}</p> */}
+            <img className=" rounded-full w-14 ml-5" src={user?.photoURL} alt="" />
 
           </div>
         </div>
