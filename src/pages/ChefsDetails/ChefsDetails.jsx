@@ -8,6 +8,9 @@ import { FaThumbsUp } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
+
 const ChefsDetails = () => {
   const { id } = useParams();
   // console.log(id);
@@ -133,7 +136,11 @@ const ChefsDetails = () => {
                   <p className=" text-justify">{recipe.cooking_method}</p>
                 </div>
 
-                <p className="font-bold text-xl mt-3">Rating: {recipe.rating}</p>
+
+                <div className="flex gap-2 my-4">
+                <Rating style={{ maxWidth: 200 }} value={Math.round(recipe.rating || 0)} readOnly />
+                <p className="font-bold text-center text-xl mt-3">{recipe.rating}</p>
+                </div>
                 
 
                 {/* Favorite Button */}
