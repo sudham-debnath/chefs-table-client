@@ -3,35 +3,35 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { StarIcon } from "@heroicons/react/24/solid";
-import toast, { Toaster } from "react-hot-toast";
 import { FaThumbsUp } from "react-icons/fa";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ChefsDetails = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const [chef, setChef] = useState({});
 
-  // console.log(chef.recipes[0]);
-
+  // Fetching Data from API
   useEffect(() => {
     fetch(`https://chefs-table-server-sudham-debnath.vercel.app/allData/${id}`)
       .then((response) => response.json())
       .then((data) => setChef(data));
   }, []);
 
-  const [favorites, setFavorites] = useState([]);
+  // Toast Message
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  function handleFavorite(index) {
-    setFavorites([...favorites, index]);
-    toast.info(`${chef.recipes[index].name} is now your favorite!`);
-  }
+  const handleFavoriteClick = () => {
+    toast.success("Recipe added to favorites!");
+    setIsFavorite(true);
+  };
 
   return (
     <div className="flex flex-col">
-      <h3 className="text-3xl text-center mt-10  font-bold">
-        Chef's Recipes
-      </h3>
+      <h3 className="text-3xl text-center mt-10  font-bold">Chef's Recipes</h3>
       <div className=" gap-10 m-10">
         {/* Chefs Details Section */}
         {/* <div className="max-w-sm rounded overflow-hidden shadow-lg">
@@ -69,7 +69,7 @@ const ChefsDetails = () => {
                     <span className="text-black">{chef.name}</span>
                     {/* <span>New Features</span> */}
                   </h3>
-                  <p className=" mb-5 text-sm font-medium text-black">
+                  <p className="mb-5 text-sm text-justify font-medium text-black">
                     {chef.bio}
                   </p>
 
@@ -115,51 +115,39 @@ const ChefsDetails = () => {
 
         {/* Chefs Recipes Section */}
         {chef.recipes && Array.isArray(chef.recipes) && (
-          <div className=" bg-gray-100 p-5 m-5 shadow rounded">
-            <h3 className=" text-3xl font-bold">Recipes:</h3>
+          <div className=" p-5 m-5">
+            <h3 className="text-3xl text-center font-bold">Recipes:</h3>
             {chef.recipes.map((recipe, index) => (
-              <div className=" mt-5" key={index}>
+              <div className="mt-5 bg-gray-100 p-10 shadow rounded" key={index}>
                 {/* <StarIcon className="w-8"></StarIcon> */}
 
-                <h4 className=" font-bold">{recipe.name}</h4>
+                <h4 className="font-bold text-2xl">{recipe.name}</h4>
 
                 <div>
-                  <p className=" font-bold">Ingredients:</p>
-                  <p>{recipe.ingredients}</p>
+                  <p className="font-bold text-xl mt-3">Ingredients:</p>
+                  <p className=" text-justify">{recipe.ingredients}</p>
                 </div>
 
                 <div>
-                  <p className=" font-bold">Cooking Method:</p>
-                  <p>{recipe.cooking_method}</p>
+                  <p className="font-bold text-xl mt-3 text-justify">Cooking Method:</p>
+                  <p className=" text-justify">{recipe.cooking_method}</p>
                 </div>
 
-                <p className=" font-bold">Rating: {recipe.rating}</p>
+                <p className="font-bold text-xl mt-3">Rating: {recipe.rating}</p>
+                
 
-                <p className=" text-2xl font-bold flex">
-                  Favorite:{" "}
-                  {favorites.includes(index) ? (
-                    <button disabled>
-                      <StarIcon className="w-8"></StarIcon>
-                    </button>
-                  ) : (
-                    <button onClick={() => handleFavorite(index)}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
-                        />
-                      </svg>
-                    </button>
-                  )}
-                </p>
+                {/* Favorite Button */}
+                <button
+                  className="btn btn-primary mt-3 mb-5"
+                  onClick={handleFavoriteClick}
+                  disabled={isFavorite}
+                >
+                  {isFavorite ? "Favorite" : "Favorite"}
+                  <StarIcon className="w-8" />
+                </button>
+                <ToastContainer />
+
+
               </div>
             ))}
           </div>
