@@ -6,7 +6,17 @@ import Chefs from "../Chefs/Chefs";
 const Home = () => {
   return (
     <div>
-      <div className=" grid lg:grid-cols-2 sm:grid-cols-1 bg-slate-100">
+      <div className=" grid lg:grid-cols-2 sm:grid-cols-1 sm:flex-row-reverse bg-slate-100">
+
+
+      <div>
+          <img
+            className=""
+            src="https://i.ibb.co/WfnFzKy/hands-taking-slices-italian-cuisine-pizza.png"
+            alt=""
+          />
+        </div>
+
         <div className=" p-16 ">
           <h1 className="text-5xl font-bold">Best Pizza </h1>
           <span className="text-5xl font-bold text-indigo-700">in Town</span>
@@ -18,12 +28,7 @@ const Home = () => {
           </p>
           <button className="btn btn-primary">Order Now!</button>
         </div>
-        <div>
-          <img
-            src="https://i.ibb.co/WfnFzKy/hands-taking-slices-italian-cuisine-pizza.png"
-            alt=""
-          />
-        </div>
+        
       </div>
 
       {/* Food Category List */}
